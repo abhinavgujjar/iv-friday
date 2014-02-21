@@ -1,9 +1,20 @@
 <html ng-app='hello'>
 <head>
+	<style>
+		.even  {
+			background-color:grey;
+		}
+
+		.harsh {
+			background-color:blue; 
+		}
+	</style>
 </head>
 <body >
+
 	<div ng-controller="worldController">
 		<h2>{{message}}</h2>
+		<h2 ng-non-bindable>{{message}}</h2>
 
 		<div>
 			<button ng-click="yell('BOOOO')">Say Something</button>
@@ -11,12 +22,11 @@
 
 		<h1>Hotels</h1>
 
-		<div ng-repeat="hotel in hotels">
+		<div ng-repeat="hotel in hotels" ng-class-even="'even'" ng-class-odd="'harsh'">
 			<img ng-src="{{hotel.image}}" style="width:200px; height: 100px" />
 			<h4>{{hotel.name}}</h4>
 			<i>{{hotel.location}}</i>
 		</div>
-
 
 	</div>
 	<script src="angular.js"></script>
