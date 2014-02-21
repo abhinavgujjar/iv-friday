@@ -23,9 +23,9 @@
 		<input type="text" ng-model="search" />
 
 		<div >
-			<div ng-repeat="hotel in hotels | filter:search" >
+			<div ng-repeat="hotel in hotels | filter : {name:search} | orderBy : 'rating'" >
 				<img ng-src="{{hotel.image}}" style="width:200px; height: 100px" />
-				<h4>{{hotel.name}}</h4>
+				<h4>{{hotel.name | uppercase}}</h4>
 				<i>{{hotel.location}}</i>
 			</div>
 		</div>
