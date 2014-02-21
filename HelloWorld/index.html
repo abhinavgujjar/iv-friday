@@ -1,0 +1,21 @@
+<html ng-app='hello'>
+<head>
+</head>
+<body >
+	<div ng-controller="worldController">
+		<h1>{{message}}</h1>
+
+		<h1>{{ 1 + 2 }}</h1>
+
+		<h1>{{ 'Hello' + 'There' }}</h1>
+
+		<h1>{{ ['some', 'things', 'are', 'never', 'easy'][2] }}</h1>
+
+		<div>
+			<button ng-click="yell('BOOOO')">Say Something</button>
+		</div>
+	</div>
+	<script src="angular.js"></script>
+	<script src="js/app.js" ></script>
+	<script src="js/controllers.js" ></script>
+</html>
