@@ -20,25 +20,38 @@
     </div><!-- /.container-fluid -->
   </nav>
   <div class="container" ng-controller="hotelsController">
-
     <div class="alert alert-success">{{message}}</div>
-
     <div class="h1">Hotels</div>
-    
     <input type="text" class="form-control" ng-model="search" />
     <br/>
     <hr/>
-
-    
-
-    <div class="row well" ng-repeat="hotel in hotels | filter : {name:search} | orderBy : 'rating'">
+    <div class="row well" ng-repeat="hotel in hotels | filter : {name:search} | orderBy : '-rating'">
       <div class="col-md-3"><img ng-src="{{hotel.image}}" style="width:200px; height: 100px" /></div>
-      <div class="col-md-3">        <h4>{{hotel.name | uppercase}}</h4>
+      <div class="col-md-3">        
+        <h4>{{hotel.name | uppercase}}</h4>
         <i>{{hotel.location}}</i>
+        <div>
+        <h3><span class="label  label-warning">{{hotel.dailyRate | toRupees}}</span></h3>
+        </div>
       </div>
-      <div class="col-md-6">extra</div>
+      <div class="col-md-6">
+        <div>
+          <button type="button" ng-click="upVote(hotel)" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+          </button>
+        </div>
+        <span class="h4"><div class="label label-info">{{hotel.rating}}</div></span>
+        <div>
+          <button type="button" ng-click="downVote(hotel)" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+          </button>
+        </div>
+      </div>
+
+
     </div>
   </div>
+</div>
 
 </div>
 <script src="lib/angular/angular.js"></script>

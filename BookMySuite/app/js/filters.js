@@ -2,9 +2,8 @@
 
 /* Filters */
 
-angular.module('myApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+bookMySuite.filter('toRupees', function(){
+	return function(dollarRate){
+		return dollarRate * 60;
+	}
+})
