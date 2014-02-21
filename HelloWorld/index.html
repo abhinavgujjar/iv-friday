@@ -10,17 +10,20 @@
 		}
 	</style>
 </head>
-<body >
+<body style="padding-left:40px">
 
 	<div ng-controller="worldController">
 		<h2>{{message}}</h2>
+
 		
+
 		<input type="checkbox" ng-model="displayHotels" />Show Hotels
 
 		<h1>Hotels</h1>
+		<input type="text" ng-model="search" />
 
-		<div ng-show="displayHotels">
-			<div ng-repeat="hotel in hotels" >
+		<div >
+			<div ng-repeat="hotel in hotels | filter:search" >
 				<img ng-src="{{hotel.image}}" style="width:200px; height: 100px" />
 				<h4>{{hotel.name}}</h4>
 				<i>{{hotel.location}}</i>
