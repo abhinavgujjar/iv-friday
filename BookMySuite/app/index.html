@@ -1,29 +1,52 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="bookMySuite">
 <head>
   <meta charset="utf-8">
   <title>My AngularJS App</title>
-  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/bootstrap.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">BookMySuite</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="container" ng-controller="hotelsController">
 
-  <div ng-view></div>
+    <div class="alert alert-success">{{message}}</div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+    <div class="h1">Hotels</div>
+    
+    <input type="text" class="form-control" ng-model="search" />
+    <br/>
+    <hr/>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular/angular-route.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+    
+
+    <div class="row well" ng-repeat="hotel in hotels | filter : {name:search} | orderBy : 'rating'">
+      <div class="col-md-3"><img ng-src="{{hotel.image}}" style="width:200px; height: 100px" /></div>
+      <div class="col-md-3">        <h4>{{hotel.name | uppercase}}</h4>
+        <i>{{hotel.location}}</i>
+      </div>
+      <div class="col-md-6">extra</div>
+    </div>
+  </div>
+
+</div>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers/hotelsController.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
 </body>
 </html>
