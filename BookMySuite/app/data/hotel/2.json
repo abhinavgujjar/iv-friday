@@ -1,0 +1,8 @@
+{
+	"id" :	2,
+	"name": "Hyatt Regency",
+	"location": "Delhi",
+	"rating": 8,
+	"dailYrate": 1000,
+	"image": "img/hyatt.jpg"
+}
