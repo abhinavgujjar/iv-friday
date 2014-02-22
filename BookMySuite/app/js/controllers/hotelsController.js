@@ -11,7 +11,11 @@ bookMySuite.controller('hotelsController', function($scope, hotelDataProvider){
 		hotel.rating--;
 	}
 
-	$scope.hotels = hotelDataProvider.hotels;
+	var promise = hotelDataProvider.getHotels();
+
+	promise.then(function (data){
+		$scope.hotels = data;
+	});
 
 	$scope.yell = function(input)
 	{
